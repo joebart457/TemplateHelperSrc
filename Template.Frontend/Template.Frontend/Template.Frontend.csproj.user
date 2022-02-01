@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\CodeEditor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\FunctionCreateEdit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MainScreen.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ParameterTemplateCreateEdit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ProjectCreateEdit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\RunSession.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CodeEditor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\FunctionCreateEdit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MainScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ParameterTemplateCreateEdit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ProjectCreateEdit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\RunSession.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Styles\Common.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

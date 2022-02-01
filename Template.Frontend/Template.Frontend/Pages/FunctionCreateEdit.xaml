@@ -1,0 +1,31 @@
+﻿<Page x:Class="Template.Frontend.Pages.FunctionCreateEdit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Template.Frontend.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1200"
+      Title="FunctionCreateEdit">
+
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/Common.xaml"></ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{StaticResource Theme.Base}" Opacity="0.3"></SolidColorBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+    </Grid>
+</Page>
