@@ -1,0 +1,7 @@
+C:\zzz_WIP\Templates\template_processor\template_processor\bin\Debug\template_processor.exe.config
+C:\zzz_WIP\Templates\template_processor\template_processor\bin\Debug\template_processor.exe
+C:\zzz_WIP\Templates\template_processor\template_processor\bin\Debug\template_processor.pdb
+C:\zzz_WIP\Templates\template_processor\template_processor\obj\Debug\template_processor.csproj.AssemblyReference.cache
+C:\zzz_WIP\Templates\template_processor\template_processor\obj\Debug\template_processor.csproj.CoreCompileInputs.cache
+C:\zzz_WIP\Templates\template_processor\template_processor\obj\Debug\template_processor.exe
+C:\zzz_WIP\Templates\template_processor\template_processor\obj\Debug\template_processor.pdb

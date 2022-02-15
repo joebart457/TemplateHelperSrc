@@ -1,0 +1,3 @@
+
+
+%%%(SQL.generate-entity "C:\\Users\\joeba\\Desktop\\test.txt")

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Template.Frontend.DataContexts.Pages;
 
 namespace Template.Frontend
 {
@@ -51,13 +52,14 @@ namespace Template.Frontend
             Frame_MainContent.Source = new Uri("Pages/CodeEditor.xaml", UriKind.Relative);
         }
 
+
         private void Button_CloseApplication_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

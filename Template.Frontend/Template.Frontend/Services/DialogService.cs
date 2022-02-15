@@ -20,5 +20,22 @@ namespace Template.Frontend.Services
             }
             return string.Empty;
         }
+
+        public static string LibraryFileBrowser()
+        {
+            var dialog = new CommonOpenFileDialog();
+            dialog.IsFolderPicker = false;
+            dialog.EnsurePathExists = true;
+            dialog.Multiselect = false;
+            dialog.Filters.Add(new CommonFileDialogFilter("Dynamically linked library (*.dll)", "*.dll"));
+            dialog.Filters.Add(new CommonFileDialogFilter("Mochj script file (*.mochj)", "*.mochj"));
+            dialog.DefaultExtension = ".dll";
+            CommonFileDialogResult result = dialog.ShowDialog();
+            if (result == CommonFileDialogResult.Ok)
+            {
+                return dialog.FileName;
+            }
+            return string.Empty;
+        }
     }
 }

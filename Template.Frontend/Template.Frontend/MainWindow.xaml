@@ -80,7 +80,9 @@
             <Grid.Background>
                 <SolidColorBrush Color="{StaticResource Theme.Base}" Opacity="0.3"></SolidColorBrush>
             </Grid.Background>
-            <Frame x:Name="Frame_MainContent" Source="Pages\MainScreen.xaml"></Frame>
+            <Frame x:Name="Frame_MainContent" 
+                   Source="Pages\MainScreen.xaml"
+                   NavigationUIVisibility="Hidden"></Frame>
         </Grid>
 
     </Grid>

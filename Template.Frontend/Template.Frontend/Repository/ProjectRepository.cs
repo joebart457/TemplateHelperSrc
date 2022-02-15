@@ -28,7 +28,7 @@ namespace Template.Frontend.Repository
 
                 var selectProjectsCmd = conn.CreateCommand();
 
-                selectProjectsCmd.CommandText = @"SELECT id, name, input_directory, sandbox_directory, sql_directory, created_date FROM Project ORDER BY name ASC";
+                selectProjectsCmd.CommandText = @"SELECT id, name, input_directory, sandbox_directory, created_date FROM Project ORDER BY name ASC";
 
                 var reader = selectProjectsCmd.ExecuteReader();
 
@@ -41,12 +41,45 @@ namespace Template.Frontend.Repository
                         Name = reader.GetString(1),
                         InputDirectory = reader.GetString(2),
                         SandboxDirectory = reader.GetString(3),
-                        SqlDirectory = reader.GetString(4),
-                        CreatedDate = reader.GetDateTime(5)
+                        CreatedDate = reader.GetDateTime(4)
                     });
                 }
 
                 return projects;
+            }
+            catch (Exception ex)
+            {
+                LoggerService.LogError(ex.ToString());
+                throw ex;
+            }
+        }
+
+        public ProjectEntity GetProject(int id)
+        {
+            try
+            {
+                var conn = _connectionManager.GetSQLConnection();
+
+                var selectProjectsCmd = conn.CreateCommand();
+
+                selectProjectsCmd.CommandText = @"SELECT id, name, input_directory, sandbox_directory, created_date FROM Project WHERE id=@Id";
+                selectProjectsCmd.Parameters.Add(new SqliteParameter("@Id", id));
+                var reader = selectProjectsCmd.ExecuteReader();
+
+                List<ProjectEntity> projects = new List<ProjectEntity>();
+                while (reader.Read())
+                {
+                    projects.Add(new ProjectEntity
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        InputDirectory = reader.GetString(2),
+                        SandboxDirectory = reader.GetString(3),
+                        CreatedDate = reader.GetDateTime(4)
+                    });
+                }
+
+                return projects.First();
             }
             catch (Exception ex)
             {
@@ -100,12 +133,11 @@ namespace Template.Frontend.Repository
                 var conn = _connectionManager.GetSQLConnection();
                 var insertProjectCmd = conn.CreateCommand();
 
-                insertProjectCmd.CommandText = @"INSERT INTO Project (name, input_directory, sandbox_directory, sql_directory, created_date) 
-                                                      VALUES(@Name, @InputDirectory, @SandboxDirectory, @SqlDirectory, @CreatedDate);";
+                insertProjectCmd.CommandText = @"INSERT INTO Project (name, input_directory, sandbox_directory, created_date) 
+                                                      VALUES(@Name, @InputDirectory, @SandboxDirectory, @CreatedDate);";
                 insertProjectCmd.Parameters.Add(new SqliteParameter("@Name", projectEntity.Name));
                 insertProjectCmd.Parameters.Add(new SqliteParameter("@InputDirectory", projectEntity.InputDirectory));
                 insertProjectCmd.Parameters.Add(new SqliteParameter("@SandboxDirectory", projectEntity.SandboxDirectory));
-                insertProjectCmd.Parameters.Add(new SqliteParameter("@SqlDirectory", projectEntity.SqlDirectory));
                 insertProjectCmd.Parameters.Add(new SqliteParameter("@CreatedDate", DateTime.Now));
 
                 insertProjectCmd.ExecuteNonQuery();
@@ -130,7 +162,6 @@ namespace Template.Frontend.Repository
                                                         name = @Name,
                                                         input_directory = @InputDirectory,
                                                         sandbox_directory = @SandboxDirectory,
-                                                        sql_directory = @SqlDirectory,
                                                         created_date = @CreatedDate 
                                                    WHERE id = @Id;";
 
@@ -138,7 +169,6 @@ namespace Template.Frontend.Repository
                 updateProjectCmd.Parameters.Add(new SqliteParameter("@Name", projectEntity.Name));
                 updateProjectCmd.Parameters.Add(new SqliteParameter("@InputDirectory", projectEntity.InputDirectory));
                 updateProjectCmd.Parameters.Add(new SqliteParameter("@SandboxDirectory", projectEntity.SandboxDirectory));
-                updateProjectCmd.Parameters.Add(new SqliteParameter("@SqlDirectory", projectEntity.SqlDirectory));
                 updateProjectCmd.Parameters.Add(new SqliteParameter("@CreatedDate", DateTime.Now));
 
                 updateProjectCmd.ExecuteNonQuery();

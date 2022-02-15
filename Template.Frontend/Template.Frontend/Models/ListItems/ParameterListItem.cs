@@ -9,7 +9,7 @@ using Template.Frontend.Models.Entities;
 
 namespace Template.Frontend.Models.ListItems
 {
-    class ParameterListItem : INotifyPropertyChanged
+    public class ParameterListItem : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;

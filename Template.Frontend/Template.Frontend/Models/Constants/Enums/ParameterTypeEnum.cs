@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Template.Frontend.Models.Constants.Enums
 {
-    enum ParameterTypeEnum: ushort
+    public enum ParameterTypeEnum: ushort
     {
         Text = 0,
         CommaDelimitedList = 1,

@@ -1,2 +1,20 @@
-1/28/2022 1:18:07 PM: INFO, Existing db not found. Creating...
-1/28/2022 1:18:07 PM: INFO, Finished new db creation.
+2/15/2022 8:52:09 AM: ERROR, Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such column: name'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()
+   at Template.Frontend.Repository.DependencyRepository.GetAllDependenciesForProject(Int32 projectId) in C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Repository\DependencyRepository.cs:line 35
+2/15/2022 4:26:01 PM: ERROR, Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'NOT NULL constraint failed: Project.sql_directory'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+   at Template.Frontend.Repository.ProjectRepository.InsertProject(ProjectEntity projectEntity) in C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Repository\ProjectRepository.cs:line 143
+2/15/2022 4:26:01 PM: ERROR, Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 19: 'NOT NULL constraint failed: Project.sql_directory'.
+   at Template.Frontend.Repository.ProjectRepository.InsertProject(ProjectEntity projectEntity) in C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Repository\ProjectRepository.cs:line 150
+   at Template.Frontend.Repository.ProjectRepository.UpsertProject(ProjectEntity projectEntity, IList`1 parameterTemplates) in C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Repository\ProjectRepository.cs:line 102
+2/15/2022 4:26:53 PM: INFO, Existing db not found. Creating...
+2/15/2022 4:26:54 PM: INFO, Finished new db creation.

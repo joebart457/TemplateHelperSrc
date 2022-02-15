@@ -134,7 +134,6 @@ namespace Template.Frontend.Managers
                     name TEXT NOT NULL,
                 	input_directory TEXT NOT NULL,
                     sandbox_directory TEXT NOT NULL,
-                    sql_directory TEXT NOT NULL,
                     created_date INTEGER NOT NULL,
                 	PRIMARY KEY(id AUTOINCREMENT)
                 ); ";
@@ -163,6 +162,16 @@ namespace Template.Frontend.Managers
 
                 createRunSessionTblCmd.ExecuteNonQuery();
 
+                var createProjectDependencyTblCmd = _sqlConn.CreateCommand();
+                createProjectDependencyTblCmd.CommandText = @"CREATE TABLE ProjectDependency (
+                	id	INTEGER NOT NULL,
+                    project_id INTEGER NOT NULL,
+                    filepath TEXT NOT NULL,
+                	PRIMARY KEY(id AUTOINCREMENT)
+                ); ";
+
+                createProjectDependencyTblCmd.ExecuteNonQuery();
+
 
                 SetApplicationSettings();
             }
@@ -181,7 +190,9 @@ namespace Template.Frontend.Managers
                     VALUES  ('Db.Version', '1.0.0'),
                             ('Logger.DoLogDebug', 'false'),
                             ('Logger.DoLogWarning', 'true'),
-                            ('Logger.DoLogError', 'true')";
+                            ('Logger.DoLogError', 'true'),
+                            ('Settings.ProjectHome', @ProjectHome)";
+                insertAppParamsCmd.Parameters.Add(new SqliteParameter("@ProjectHome", System.Reflection.Assembly.GetExecutingAssembly().Location));
                 insertAppParamsCmd.ExecuteNonQuery();
 
             }

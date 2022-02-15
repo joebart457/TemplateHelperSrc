@@ -60,7 +60,7 @@ namespace Template.Frontend.Pages
             deleteButtonTemplate.AddHandler(
                 Button.ClickEvent,
                 new RoutedEventHandler((o, e) => {
-                    var item = ListItemService.Convert<FilledParameterListItem>(DataGrid_FilledParametersEdit.SelectedItem);
+                    var item = (FilledParameterListItem)DataGrid_FilledParametersEdit.SelectedItem;
                     _parametersItemSource.Remove(item);
                     RefreshFilledParametersEditDataGrid();
                 })
@@ -117,7 +117,7 @@ namespace Template.Frontend.Pages
                 GroupBox_RunSessionEdit.IsEnabled = false;
             } else
             {
-                _project = ListItemService.Convert<ProjectListItem>(ComboBox_ProjectsSelect.SelectedItem);
+                _project = (ProjectListItem)ComboBox_ProjectsSelect.SelectedItem;
                 GroupBox_RunSessionEdit.IsEnabled = true;
             }
             PopulateFilledParametersEditDataGrid();
@@ -146,10 +146,18 @@ namespace Template.Frontend.Pages
             {
                 Button_RunSession.IsEnabled = false;
                 List<SymbolMacro> macros = DataGrid_FilledParametersEdit.ItemsSource.Cast<FilledParameterListItem>().Select(x => x.ToSymbolMacro()).ToList();
-                Tasks.TemplateCreationTask task = new Tasks.TemplateCreationTask(
-                    _project.InputDirectory,
+                //Tasks.TemplateCreationTask task = new Tasks.TemplateCreationTask(
+                //    _project.InputDirectory,
+                //    TextBox_OutputDirectory.Text,
+                //    _project.SandboxDirectory,
+                //    CheckBox_RunForSandbox.IsChecked.GetValueOrDefault(),
+                //    CheckBox_AllowOverwrite.IsChecked.GetValueOrDefault(),
+                //    macros
+                //    );
+
+                Tasks.ScaffoldTask task = new Tasks.ScaffoldTask(
+                    _project.Id,
                     TextBox_OutputDirectory.Text,
-                    _project.SandboxDirectory,
                     CheckBox_RunForSandbox.IsChecked.GetValueOrDefault(),
                     CheckBox_AllowOverwrite.IsChecked.GetValueOrDefault(),
                     macros

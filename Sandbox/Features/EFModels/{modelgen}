@@ -1,0 +1,5 @@
+namespace !example!.Service.EFModel{
+
+	{{{modeldefinition}}}
+
+}

@@ -1,0 +1,11 @@
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\bin\Debug\Template.ExampleLib.pdb
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\bin\Debug\Microsoft.SqlServer.TransactSql.ScriptDom.dll
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\bin\Debug\Mochj.dll
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\bin\Debug\Mochj.dll.config
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\obj\Debug\Template.ExampleLib.csproj.AssemblyReference.cache
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\obj\Debug\Template.ExampleLib.csproj.CoreCompileInputs.cache
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\obj\Debug\Template.ExampleLib.csproj.CopyComplete
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\obj\Debug\Template.ExampleLib.pdb
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\bin\Debug\Template.ExampleLib.dll.config
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\bin\Debug\Template.ExampleLib.dll
+C:\zzz_WIP\Templates\Template.ExampleLib\Template.ExampleLib\obj\Debug\Template.ExampleLib.dll

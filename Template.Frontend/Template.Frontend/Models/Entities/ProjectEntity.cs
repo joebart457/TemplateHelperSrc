@@ -7,13 +7,12 @@ using Template.Frontend.Models.ListItems;
 
 namespace Template.Frontend.Models.Entities
 {
-    class ProjectEntity
+    public class ProjectEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string InputDirectory { get; set; }
         public string SandboxDirectory { get; set; }
-        public string SqlDirectory { get; set; }
         public DateTime CreatedDate { get; set; }
 
         public ProjectListItem ToListitem()
@@ -24,7 +23,6 @@ namespace Template.Frontend.Models.Entities
                 Name = Name,
                 InputDirectory = InputDirectory,
                 SandboxDirectory = SandboxDirectory,
-                SqlDirectory = SqlDirectory,
                 CreatedDate = CreatedDate
             };
         }

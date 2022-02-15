@@ -16,6 +16,7 @@ namespace Template.Frontend.Tasks
         private bool _overwrite;
         private List<SymbolMacro> _macros;
 
+        private List<string> resolvedFiles = new List<string>();
         public TemplateCreationTask(string templateDirectory, string outputDirectory, string sandboxDirectory, bool runForSandbox, bool overwrite, List<SymbolMacro> macros)
         {
             _templateDirectory = templateDirectory;
@@ -127,6 +128,7 @@ namespace Template.Frontend.Tasks
                 throw new Exception($"Unable to process file {filename} file already exists");
             }
 
+            resolvedFiles.Add(filepath);
            
             File.WriteAllLines(filename, ResolveFile(filepath));
         }
@@ -159,9 +161,6 @@ namespace Template.Frontend.Tasks
                             resolvedLines.AddRange(ResolveLine(line.Replace(macro.Symbol, value)));
                         }
                         return resolvedLines;
-                    }
-                    else if (macro.Fn != null) {
-                        line = line.Replace(macro.Symbol, macro.Fn(_macros)); 
                     }
                     else
                     {

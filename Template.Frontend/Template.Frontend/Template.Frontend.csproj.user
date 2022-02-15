@@ -10,7 +10,7 @@
     <Compile Update="Pages\CodeEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\FunctionCreateEdit.xaml.cs">
+    <Compile Update="Pages\Dependencies.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\MainScreen.xaml.cs">
@@ -25,6 +25,24 @@
     <Compile Update="Pages\RunSession.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\Dialogs\AddParameterDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\Dialogs\AddParameterTemplateDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\Dialogs\AddProjectDependencyDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\Dialogs\CreateEditProjectDependenciesDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\Dialogs\CreateEditProjectDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\Dialogs\TemplateAssignmentDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -33,7 +51,7 @@
     <Page Update="Pages\CodeEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\FunctionCreateEdit.xaml">
+    <Page Update="Pages\Dependencies.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\MainScreen.xaml">
@@ -49,6 +67,24 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Common.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Dialogs\AddParameterDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Dialogs\AddParameterTemplateDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Dialogs\AddProjectDependencyDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Dialogs\CreateEditProjectDependenciesDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Dialogs\CreateEditProjectDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Dialogs\TemplateAssignmentDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

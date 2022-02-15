@@ -12,6 +12,5 @@ namespace Template.Frontend.Models
         public string Symbol { get; set; }
         public string Value { get; set; }
         public ParameterTypeEnum Type { get; set; }
-        public Func<List<SymbolMacro>, string> Fn { get; set; } = null;
     }
 }

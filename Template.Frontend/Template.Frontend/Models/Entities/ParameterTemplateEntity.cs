@@ -7,7 +7,7 @@ using Template.Frontend.Models.ListItems;
 
 namespace Template.Frontend.Models.Entities
 {
-    class ParameterTemplateEntity
+    public class ParameterTemplateEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
