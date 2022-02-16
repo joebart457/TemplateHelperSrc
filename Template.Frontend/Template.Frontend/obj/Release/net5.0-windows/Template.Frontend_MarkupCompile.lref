@@ -1,8 +1,17 @@
-﻿
+﻿C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Release\net5.0-windows\GeneratedInternalTypeHelper.g.cs
 
 FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\MainWindow.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Pages\CodeEditor.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Pages\Help.xaml;;
 FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Pages\MainScreen.xaml;;
 FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Pages\ParameterTemplateCreateEdit.xaml;;
 FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Pages\ProjectCreateEdit.xaml;;
 FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Pages\RunSession.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Styles\Common.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Windows\Dialogs\AddParameterDialog.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Windows\Dialogs\AddParameterTemplateDialog.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Windows\Dialogs\AddProjectDependencyDialog.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Windows\Dialogs\CreateEditProjectDependenciesDialog.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Windows\Dialogs\CreateEditProjectDialog.xaml;;
+FC:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\Windows\Dialogs\TemplateAssignmentDialog.xaml;;
 

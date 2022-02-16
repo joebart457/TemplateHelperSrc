@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET5_0;NETCOREAPP
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\App.xaml
-61090190078
+14-1148330266
 
-32-1665120541
-200573969863
-MainWindow.xaml;Pages\MainScreen.xaml;Pages\ParameterTemplateCreateEdit.xaml;Pages\ProjectCreateEdit.xaml;Pages\RunSession.xaml;Styles\Common.xaml;
+591311498715
+2051002121552
+MainWindow.xaml;Pages\CodeEditor.xaml;Pages\Help.xaml;Pages\MainScreen.xaml;Pages\ParameterTemplateCreateEdit.xaml;Pages\ProjectCreateEdit.xaml;Pages\RunSession.xaml;Styles\Common.xaml;Windows\Dialogs\AddParameterDialog.xaml;Windows\Dialogs\AddParameterTemplateDialog.xaml;Windows\Dialogs\AddProjectDependencyDialog.xaml;Windows\Dialogs\CreateEditProjectDependenciesDialog.xaml;Windows\Dialogs\CreateEditProjectDialog.xaml;Windows\Dialogs\TemplateAssignmentDialog.xaml;
 
 False
 
