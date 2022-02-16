@@ -1,0 +1,167 @@
+﻿<Page x:Class="Template.Frontend.Pages.Help"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Template.Frontend.Pages"
+      mc:Ignorable="d" 
+            d:DesignHeight="750" d:DesignWidth="1200"
+      Title="Help">
+
+    <Page.Resources>
+        <ResourceDictionary Source="../Styles/Common.xaml"></ResourceDictionary>
+    </Page.Resources>
+
+    <StackPanel Background="White">
+        
+
+        <Expander Header="Getting Started">
+            <ScrollViewer MaxHeight="400">
+                <StackPanel Margin="40">
+                    <Expander Header="Step One: What is a parameter?">
+                        <StackPanel Margin="20">
+                            <TextBlock>In the context of this scaffolding tool, a parameter is a symbol used throughout the template structure which will be replaced by a user provided value when a project is run.</TextBlock>
+                            <TextBlock>Parameters have two types: Text and CommaDelimitedList</TextBlock>
+                            <Expander Header="Text">
+                                <StackPanel Margin="20">
+                                    <TextBlock>Parameters of type 'Text' function like a normal macro. For example take a Text parameter that has the symbol {test}.</TextBlock>
+                                    <TextBlock>Assume somewhere in your template structure you have the following line:</TextBlock>
+                                    <TextBlock FontStyle="Italic">Hello, World! My name is {test}.</TextBlock>
+                                    <TextBlock>At runtime, if the user provided the value 'George' for the Text parameter {test}, the outputted line would read:</TextBlock>
+                                    <TextBlock FontStyle="Italic">Hello, World! My name is George.</TextBlock>
+                                </StackPanel>
+                            </Expander>
+                            <Expander Header="CommaDelimitedList">
+                                <StackPanel Margin="20">
+                                    <TextBlock>Parameters of type 'CommaDelimitedList' allow the user to provide a list of values (separated by commas) at runtime for that symbol</TextBlock>
+                                    <TextBlock>Inside of files, these function like Text parameters, but will generate a new line for each value in the list.</TextBlock>
+                                    <TextBlock>Assume somewhere in your template structure you have the following line:</TextBlock>
+                                    <TextBlock  Margin="10" FontStyle="Italic">Hello, World! My name is {testList}.</TextBlock>
+                                    <TextBlock>At runtime, if the user provided the value 'George,Billy' for the Text parameter {test}, the outputted lines would read:</TextBlock>
+                                    <TextBlock  Margin="10,10,0,10" FontStyle="Italic">Hello, World! My name is George.</TextBlock>
+                                    <TextBlock  Margin="10,-10,0,10" FontStyle="Italic">Hello, World! My name is Billy.</TextBlock>
+
+                                    <TextBlock>In folderpaths, CommaDelimitedList parameters function a bit differently.</TextBlock>
+                                    <TextBlock>They will create a new folder for each value in the list. However, inside of each folder you can access the current list item using the $ symbol.</TextBlock>
+                                    <TextBlock>For example if you had the following folder structure:</TextBlock>
+                                    <TextBlock Margin="10" FontStyle="Italic">C:/Users/example.user/Documents/MyTemplate/Folder{folderNumber}/AnotherFolder${folderNumber}/example.txt</TextBlock>
+                                    <TextBlock>If the user provided the value '1,2,3' The output would be:</TextBlock>
+                                    <TextBlock Margin="10,10,0,10" FontStyle="Italic">C:/Users/example.user/Documents/MyTemplate/Folder1/AnotherFolder1/example.txt</TextBlock>
+                                    <TextBlock Margin="10,-10,0,10" FontStyle="Italic">C:/Users/example.user/Documents/MyTemplate/Folder2/AnotherFolder2/example.txt</TextBlock>
+                                    <TextBlock Margin="10,-10,0,10" FontStyle="Italic">C:/Users/example.user/Documents/MyTemplate/Folder3/AnotherFolder3/example.txt</TextBlock>
+                                    <TextBlock FontStyle="Oblique">Note: the current list item accessor can be used inside of files, too.</TextBlock>
+                                </StackPanel>
+                            </Expander>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Step One: Creating the file structure">
+                        <StackPanel Margin="20">
+                            <TextBlock>Choose or create a folder to create your template structure in.</TextBlock>
+                            <TextBlock>For example: C:/Users/example.user/Documents/MyTemplate</TextBlock>
+                            <TextBlock>In that folder you can create any folders or files that you would like to be included in your template.</TextBlock>
+                            <TextBlock FontStyle="Oblique">Note: folder and file names are allowed to contain any number of parameter symbols (including CommaDelimitedList type symbols)</TextBlock>
+                            <TextBlock FontStyle="Oblique">For example: C:/Users/example.user/Documents/MyTemplate/Folder{folderNumber}/{filenamesymbol}.cs</TextBlock>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Step Three: Creating a Parameter Template">
+                        <StackPanel Margin="20">
+                            <TextBlock>Now that you have a template structure, it is time to create a parameter template.</TextBlock>
+                            <TextBlock>Navigate to the 'Templates' tab, and click '+Template'.</TextBlock>
+                            <TextBlock>The template name can be any non-empty string.</TextBlock>
+                            <TextBlock>Once you have created a template, expand it in the template list. Here you can add parameters to your template.</TextBlock>
+                            <TextBlock>Add a parameter for each symbol you have used in your template structure. For example in the following structure:</TextBlock>
+                            <TextBlock  Margin="10,10,0,10" FontStyle="Italic">C:/Users/example.user/Documents/MyTemplate/Folder{folderNumber}/{filenamesymbol}.cs</TextBlock>
+                            <TextBlock>You would want to create a Text parameter with the symbol {folderNumber} and another Text parameter with the symbol {filenamesymbol}.</TextBlock>
+                            <TextBlock>Do this for each symbol in your template structure, including any symbols used inside of files.</TextBlock>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Step Four: Creating a project">
+                        <StackPanel Margin="20">
+                            <TextBlock>Navigate to the 'Project' tab using the side panel.</TextBlock>
+                            <TextBlock>Click on '+ Project' Button</TextBlock>
+                            <TextBlock>Project Name: Can be any string that will help you identify the project.</TextBlock>
+                            <TextBlock>Template Directory: The path to the directory that holds your template structure.</TextBlock>
+                            <TextBlock>In our example: C:/Users/example.user/Documents/MyTemplate</TextBlock>
+                            <TextBlock>Sandbox Directory: A path to a directory to be used for testing output before running in an actual output directory.</TextBlock>
+                            <TextBlock>This is usually an empty directory.</TextBlock>
+                            <TextBlock>Assigned Templates: List of parameter templates assigned to the project</TextBlock>
+                            <TextBlock>Here you can assign the template that you created in step three to your project.</TextBlock>
+                            <TextBlock>Note: you can assign multiple templates to a project to use any parameters included in them at runtime.</TextBlock>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Step Five: Running the project">
+                        <StackPanel Margin="20">
+                            <TextBlock>When you are ready to run your project, navigate to the 'Run' page.</TextBlock>
+                            <TextBlock>Here you will see a dropdown allowing you to choose which project to run.</TextBlock>
+                            <TextBlock>Once a project is chosen, any parameters defined in the templates assigned to the project will show up in a list below.</TextBlock>
+                            <TextBlock>There you can provide a value for any symbols and delete any unused symbols (or add symbols using +Row button)</TextBlock>
+                            <TextBlock>When you have adequately defined all symbols, you can either select an output directory to copy the template to (replacing any defined symbols with the provided values)</TextBlock>
+                            <TextBlock>or you can check 'Run in sandbox' which will change the output target to the project's sandbox directory.</TextBlock>
+                            <TextBlock>If any files in the target directory would be overwritten by the copy, the task will fail.</TextBlock>
+                            <TextBlock>To allow the task to overwrite files in the target directory, select the 'Allow overwrite option'</TextBlock>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </Expander>
+        <Expander Header="Inline Scripting"
+                  Grid.Row="1">
+            <ScrollViewer MaxHeight="400">
+                <StackPanel Margin="40">
+                    <TextBlock>In addition to defining symbols and providing macro values for them, a user can also write a line of custom code whose result will replace a line in a template file.</TextBlock>
+                    <TextBlock>To denote a line is code to be run, start it with %%% </TextBlock>
+                    <TextBlock>The code has to be written in the mochj language (see Mochj section of the Help page).</TextBlock>
+                    <TextBlock>The code will be run and any object returned will be cast to a string and used to replace that line of the file</TextBlock>
+                    <TextBlock>For example say we have a file test.txt with the following content:</TextBlock>
+                    <TextBlock  Margin="10,10,0,10" FontStyle="Italic">This is a test file.</TextBlock>
+                    <TextBlock  Margin="10,-10,0,10" FontStyle="Italic">%%% (generate-custom-text "Hello, world!")</TextBlock>
+                    <TextBlock  Margin="10,-10,0,10" FontStyle="Italic">End test.</TextBlock>
+                    <TextBlock>When run, the following output will be generated:</TextBlock>
+                    <TextBlock  Margin="10,10,0,10" FontStyle="Italic">This is a test file.</TextBlock>
+                    <TextBlock  Margin="10,-10,0,10" FontStyle="Italic">Hello, World!</TextBlock>
+                    <TextBlock  Margin="10,-10,0,10" FontStyle="Italic">End test.</TextBlock>
+                    <TextBlock>But where is the function 'generate-custom-text' defined?</TextBlock>
+                    <TextBlock>Custom scripting functions can be defined in two ways.</TextBlock>
+                    <Expander Header="Importing scripting functions using a Dynamically linked library">
+                        <StackPanel Margin="20">
+                            <TextBlock>Perhaps the most powerful way to create custom functions is by creating a custom .dll and importing them.</TextBlock>
+                            <TextBlock>To do this, you will need to create a new C# application in visual studio.</TextBlock>
+                            <TextBlock>Make sure to set the output type to 'Class library' in the project properties.</TextBlock>
+                            <TextBlock>In the solution explorer, right click on 'Refrences' and click 'Add Refrence'.</TextBlock>
+                            <TextBlock>Go to 'Browse' and search for Libs/Mochj.dll included with this project.</TextBlock>
+                            <TextBlock>Once you find it, select 'OK'</TextBlock>
+                            <TextBlock>Next, copy the contents of the /Templates/CustomFnExample.cs into Program.cs</TextBlock>
+                            <TextBlock>Follow the directions included in the example code and when ready, compile your program into a .dll</TextBlock>
+                            <TextBlock>Once you have you dll file, copy the full path to the file and navigate to the 'Projects' tab</TextBlock>
+                            <TextBlock>For whichever projects you'd like to use your custom function(s) in, click the ... button and go to 'Dependencies'</TextBlock>
+                            <TextBlock>Here you can add the dependency by copying in the path to your dll.</TextBlock>
+                            <TextBlock>The .dll will be automatically loaded when running the project, and you should now have access to any custom functions defined there.</TextBlock>
+                        </StackPanel>
+                    </Expander>
+                    <Expander Header="Importing scripting functions from .mochj script file">
+                        <StackPanel Margin="20">
+                            <TextBlock>The other way to create custom scripting function is to write a script file in mochj.</TextBlock>
+                            <TextBlock>You can add the script file to a project's dependencies the same way you would when adding a .dll</TextBlock>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </Expander>
+        <Expander Header="Mochj">
+            <ScrollViewer MaxHeight="400">
+                <StackPanel Margin="40">
+                    <TextBlock>Mochj is a custom scripting language created for this project.</TextBlock>
+                    <Expander Header="Syntax">
+                        <StackPanel Margin="20">
+                            <TextBlock>Syntax is lisp-like with all statements enclosed in parentheses.</TextBlock>
+                            <TextBlock>Keywords: defn, set, namespace, load</TextBlock>
+                            <TextBlock>Control flow is defined as functions</TextBlock>
+                            <TextBlock>Example Script: /Templates/mochj_example_program.txt</TextBlock>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </Expander>
+        
+    </StackPanel>
+</Page>

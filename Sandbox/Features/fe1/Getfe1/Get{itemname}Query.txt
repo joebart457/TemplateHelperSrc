@@ -1,7 +1,0 @@
-This is internal code for {itemname}.
-
-Here is a specific key: 
-
-
-Here is a multilistKey (-item)  - {constant} =>  (-item)
-$ here it was!

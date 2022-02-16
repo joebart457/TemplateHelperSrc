@@ -117,8 +117,9 @@
         <Setter Property="BorderBrush" Value="{StaticResource Nav.Button.Static.Border}"/>
         <Setter Property="Foreground" Value="{StaticResource ControlTextBrushKey}"/>
         <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="10"></Setter>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="1"/>
         <Setter Property="Template">
@@ -374,20 +375,18 @@
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate DataType="{x:Type viewmodels:ProjectViewModel}">
-                    <Border CornerRadius="5" Background="White" Width="560">
+                    <Border CornerRadius="5" Background="White" Width="800">
                         <Expander>
                             <Expander.Header>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="500"></ColumnDefinition>
-                                        <ColumnDefinition Width="0"></ColumnDefinition>
+                                        <ColumnDefinition Width="740"></ColumnDefinition>
                                         <ColumnDefinition Width="40"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Text="{Binding Name}"
                                                Margin="10,0,0,0"
-                                               FontWeight="Bold"
                                                Grid.Column="0"></TextBlock>
-                                    <Button Grid.Column="2"
+                                    <Button Grid.Column="1"
                                             Command="{Binding ShowMoreActionsCommand}"
                                             Margin="10,0,10,0"
                                             BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
@@ -405,7 +404,14 @@
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="0" Text="{Binding InputDirectory}" FontStyle="Italic" FontSize="10"></TextBlock>
                                 <TextBlock Grid.Row="1" Text="{Binding SandboxDirectory}" FontStyle="Italic" FontSize="10"></TextBlock>
-                                <TextBlock Grid.Row="2" Text="{Binding SqlDirectory}" FontStyle="Italic" FontSize="10"></TextBlock>
+                                <Grid Grid.Row="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="Dependencies:" FontSize="10"></TextBlock>
+                                    <TextBlock Grid.Column="1" Text="{Binding Dependencies}" FontStyle="Italic" FontSize="10" TextWrapping="Wrap"></TextBlock>
+                                </Grid>
                             </Grid>
                         </Expander>
                     </Border>
@@ -491,10 +497,17 @@
                                         </ListBox.Style>
                                     </ListBox>
                                 </GroupBox>
-                                <Button Grid.Row="2"
-                                        Content="+ Add new parameter"
+                                <Grid Grid.Row="2" Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Button Grid.Column="1"
+                                        Content="+ Parameter"
+                                        Style="{StaticResource DefaultButtonStyle}"
                                         Command="{Binding AddParameterCommand}"></Button>
-
+                                </Grid>
                             </Grid>
                         </Expander>
                     </Border>

@@ -43,6 +43,7 @@ namespace Template.Frontend.Models.ViewModels
         private string _sandboxDirectory = "";
         private DateTime _createdDate;
         private List<ParameterTemplateListItem> _assignedTemplates = new List<ParameterTemplateListItem>();
+        private string _dependencies;
         public int Id
         {
             get { return _id; }
@@ -73,7 +74,11 @@ namespace Template.Frontend.Models.ViewModels
             get { return _assignedTemplates; }
             set { _assignedTemplates = value; RaisePropertyChanged(nameof(AssignedTemplates)); }
         }
-
+        public string Dependencies
+        {
+            get { return _dependencies; }
+            set { _dependencies = value; RaisePropertyChanged(nameof(Dependencies)); }
+        }
 
         private ContextMenu _moreActionsMenu = new ContextMenu();
 
@@ -122,6 +127,7 @@ namespace Template.Frontend.Models.ViewModels
             {
                 ContextService.DependencyRepository.DeleteDependenciesFromProject(Id);
                 ContextService.DependencyRepository.AssignDependenciesToProject(Id, dialog.Result.Select(x => x.ToEntity()).ToList());
+                Dependencies = string.Join(";", ContextService.DependencyRepository.GetAllDependenciesForProject(Id).Select(x => x.Path));
             }
         }
 
@@ -146,7 +152,8 @@ namespace Template.Frontend.Models.ViewModels
                 InputDirectory = e.InputDirectory,
                 SandboxDirectory = e.SandboxDirectory,
                 CreatedDate = e.CreatedDate,
-                AssignedTemplates = ContextService.ParameterTemplateRepository.GetAssignedParameterTemplates(e.Id).Select(x => x.ToListItem()).ToList()
+                AssignedTemplates = ContextService.ParameterTemplateRepository.GetAssignedParameterTemplates(e.Id).Select(x => x.ToListItem()).ToList(),
+                Dependencies = string.Join(";", ContextService.DependencyRepository.GetAllDependenciesForProject(e.Id).Select(x => x.Path))
             };
         }
 

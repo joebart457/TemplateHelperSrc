@@ -81,7 +81,7 @@ namespace Template.Frontend.Models.ListItems
 
         public bool Enable
         {
-            get { return _type == ParameterTypeEnum.Text; }
+            get { return _type == ParameterTypeEnum.Text || _type == ParameterTypeEnum.CommaDelimitedList; } // To be removed
             set { }
         }
 

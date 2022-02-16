@@ -13,6 +13,8 @@
     <None Remove="Assets\Images\down-carat.png" />
     <None Remove="Assets\Images\hash.png" />
     <None Remove="Assets\Images\lambda.png" />
+    <None Remove="Assets\Images\maximize.png" />
+    <None Remove="Assets\Images\minimize.png" />
     <None Remove="Assets\Images\question-mark.png" />
     <None Remove="Assets\Images\rcarat.png" />
     <None Remove="Assets\Images\str.png" />
@@ -22,6 +24,7 @@
     <None Remove="Assets\Images\three-dots.png" />
     <None Remove="Assets\Images\tilde.png" />
     <None Remove="Assets\Images\underscore.png" />
+    <None Remove="Assets\Images\X.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -57,6 +60,12 @@
     <Resource Include="Assets\Images\lambda.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Images\maximize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\minimize.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\Images\question-mark.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -82,6 +91,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\Images\underscore.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\X.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

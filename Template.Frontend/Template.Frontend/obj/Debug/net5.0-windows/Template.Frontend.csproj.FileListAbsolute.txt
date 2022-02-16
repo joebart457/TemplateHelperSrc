@@ -33,9 +33,9 @@ C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\bin\Debug\net5.0-window
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\bin\Debug\net5.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\bin\Debug\net5.0-windows\Mochj.dll
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\bin\Debug\net5.0-windows\Mochj.dll.config
+C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Template.Frontend.csproj.AssemblyReference.cache
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\CodeEditor.g.cs
-C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\Dependencies.g.cs
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\MainScreen.g.cs
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\ParameterTemplateCreateEdit.g.cs
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\ProjectCreateEdit.g.cs
@@ -52,7 +52,6 @@ C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-window
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Template.Frontend_MarkupCompile.lref
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\MainWindow.baml
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\CodeEditor.baml
-C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\Dependencies.baml
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\MainScreen.baml
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\ParameterTemplateCreateEdit.baml
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\ProjectCreateEdit.baml
@@ -74,4 +73,5 @@ C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-window
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\ref\Template.Frontend.dll
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Template.Frontend.pdb
 C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Template.Frontend.genruntimeconfig.cache
-C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Template.Frontend.csproj.AssemblyReference.cache
+C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\Help.g.cs
+C:\zzz_WIP\Templates\Template.Frontend\Template.Frontend\obj\Debug\net5.0-windows\Pages\Help.baml

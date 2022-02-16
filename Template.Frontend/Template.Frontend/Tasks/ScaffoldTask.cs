@@ -196,7 +196,7 @@ namespace Template.Frontend.Tasks
                     var interpreter = new Mochj._Interpreter.Interpreter(_environment);
                     var parser = new Mochj._Parser.ItemizedParser();
                     Mochj.Models.QualifiedObject result = parser.ParseExpression(line.Substring(ScriptIndicator.Length)).Visit(interpreter);
-                    final.Add(result.Object.ToString());
+                    final.Add(result.Object != null? result.Object.ToString() : "null");
                 }
                 else
                 {

@@ -10,7 +10,7 @@
     <Compile Update="Pages\CodeEditor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\Dependencies.xaml.cs">
+    <Compile Update="Pages\Help.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\MainScreen.xaml.cs">
@@ -51,7 +51,7 @@
     <Page Update="Pages\CodeEditor.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Pages\Dependencies.xaml">
+    <Page Update="Pages\Help.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\MainScreen.xaml">

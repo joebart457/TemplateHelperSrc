@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Template.Frontend.Windows.Dialogs"
         xmlns:datacontext="clr-namespace:Template.Frontend.DataContexts"
         mc:Ignorable="d"
-         Title="AddParameterTemplateDialog" Height="110" Width="400">
+         Title="AddParameterTemplateDialog" Height="130" Width="400">
     <Window.Resources>
         <ResourceDictionary Source="../../Styles/Common.xaml"></ResourceDictionary>
     </Window.Resources>
@@ -37,6 +37,7 @@
             <Button x:Name="Button_Save"
                     Content="Save"
                     Grid.Column="1"
+                    IsEnabled="{Binding IsSavable}"
                     Width="60"
                     Height="20"
                     Margin="10" Click="Button_Save_Click"></Button>

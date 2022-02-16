@@ -1,3 +1,0 @@
-This is internal code for adf.
-
-Here is a specific key: asdf

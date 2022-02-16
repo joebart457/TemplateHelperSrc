@@ -15,30 +15,36 @@
         <local:ParameterTemplateListDataContext/>
     </Page.DataContext>
 
-    <Grid>
-        <GroupBox Style="{StaticResource GroupBoxPanel}">
+    <Grid Background="{StaticResource Brush.Theme.Base}" Opacity=".8">
+        <GroupBox Style="{StaticResource GroupBoxPanel}" 
+                  Margin="110,25,110,25"
+                  Header="Templates List">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="497*"/>
+                    <ColumnDefinition Width="102*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Background="{StaticResource Brush.Theme.MenuBar}">
+                <Grid Grid.Row="0" Background="{StaticResource Brush.Theme.MenuBar}" Grid.ColumnSpan="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition Width="80"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="1"
-                            Content="+Create"
+                            Content="+ Template"
                             Style="{StaticResource MenuButton}"
                             Height="20"
                             Command="{Binding AddTemplateCommand}"></Button>
                 </Grid>
                 <ListBox ItemsSource="{Binding Templates}"
                          ItemContainerStyle="{StaticResource ExpandableParameterTemplate}"
-                         Grid.Row="1">
+                         Grid.Row="1" Grid.ColumnSpan="2">
                     <ListBox.Style>
                         <Style TargetType="ListBox">
-                            <Setter Property="Background" Value="{StaticResource Brush.Theme.Base}"></Setter>
+                            <Setter Property="Background" Value="Gray"></Setter>
                         </Style>
                     </ListBox.Style>
                 </ListBox>

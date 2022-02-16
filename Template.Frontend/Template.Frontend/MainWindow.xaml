@@ -28,35 +28,64 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="160"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid x:Name="TitleBar" 
               Grid.Row="0" 
-              Grid.ColumnSpan="2" MouseDown="TitleBar_MouseDown">
+              Grid.Column="1"
+              Grid.ColumnSpan="1" MouseDown="TitleBar_MouseDown">
             <Grid.Background>
                 <SolidColorBrush Color="{StaticResource Theme.TitleBar}" Opacity="0.9"></SolidColorBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition Width="40"></ColumnDefinition>
                 <ColumnDefinition Width="40"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Button_CloseApplication"         
-                    Grid.Column="3"
-                    Style="{StaticResource ExitButton}"
-                    Content="X" Click="Button_CloseApplication_Click"></Button>
+
+            <Button Grid.Column="1"
+                    x:Name="Button_MinimizeApplication"
+                    Margin="10,0,10,0"
+                    Click="Button_MinimizeApplication_Click"
+                    BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                <Image Source="pack://application:,,,/Assets/Images/minimize.png"></Image>
+            </Button>
+
+            <Button Grid.Column="2"
+                    x:Name="Button_MaximizeApplication"
+                    Margin="10,0,10,0"
+                    BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="Button_MaximizeApplication_Click">
+                <Image Source="pack://application:,,,/Assets/Images/maximize.png"></Image>
+            </Button>
+
+            <Button Grid.Column="3"
+                    x:Name="Button_CloseApplication"
+                    Margin="10"
+                    BorderThickness="0" 
+                    Click="Button_CloseApplication_Click"
+                    Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                <Image Source="pack://application:,,,/Assets/Images/X.png"></Image>
+            </Button>
+            
+           
         </Grid>
         <Grid x:Name="SideBar" 
-              Grid.Row="1" 
+              Grid.Row="0" 
               Grid.Column="0"
-              Grid.ColumnSpan="1" Opacity="0.7">
+              Grid.RowSpan="2"
+              Grid.ColumnSpan="1">
             <Grid.Background>
                 <SolidColorBrush Color="{StaticResource Theme.SideNav}"></SolidColorBrush> 
             </Grid.Background>
             <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                </Grid>
                 <Button x:Name="Button_NavigateToParameterTemplates"
                         Content="Parameter Templates" 
                         Style="{StaticResource NavButton}"
@@ -72,6 +101,9 @@
                 <Button x:Name="Button_NavigateToCodeEditor"
                         Content="Code Sandbox" 
                         Style="{StaticResource NavButton}" Click="Button_NavigateToCodeEditor_Click"></Button>
+                <Button x:Name="Button_NavigateToHelp"
+                        Content="Help" 
+                        Style="{StaticResource NavButton}" Click="Button_NavigateToHelp_Click"></Button>
             </StackPanel>
         </Grid>
         <Grid x:Name="MainContentArea"

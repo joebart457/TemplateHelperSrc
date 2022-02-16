@@ -14,7 +14,7 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="40"></RowDefinition>
         </Grid.RowDefinitions>
@@ -37,37 +37,37 @@
                 </Grid.RowDefinitions>
                 <TextBox Grid.Column="0" 
                          Style="{StaticResource TextBoxSingleBorderWithLabel}" 
-                         Margin="3,0,170,0"
-                         Tag="Parameter Name"
+                         Margin="10,50,163,30"
+                         Tag="Parameter Symbol"
                          Text="{Binding Parameter.Symbol}" 
-                         x:Name="TextBox_ParameterName" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="2"/>
-                <Label Grid.Row="0" Margin="3,0,0,-5" Content="Parameter Type">
+                         x:Name="TextBox_ParameterName" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+                <Label Grid.Row="0" Margin="10,0,193,27" Content="Parameter Type" Grid.ColumnSpan="2">
                     <Label.Style>
                         <Style TargetType="{x:Type Label}">
                             <Setter Property="Foreground" Value="{StaticResource Brush.Theme.Primary}"></Setter>
                         </Style>
                     </Label.Style>
                 </Label>
-                <ComboBox Grid.Row="1" 
+                <ComboBox 
                           x:Name="ComboBox_ParameterType"
                           Grid.Column="0" 
-                          Margin="10,0,0,0"
+                          Margin="17,22,193,10"
                           ItemsSource="{Binding ParameterTypesList}"
-                          SelectedItem="{Binding Parameter.Type}"></ComboBox>
+                          SelectedItem="{Binding Parameter.Type}" Grid.ColumnSpan="2"/>
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Margin="3,0,0,-5" Content="Description">
+                <Label Grid.Row="0" Margin="10,-44,-7,39" Content="Description">
                     <Label.Style>
                         <Style TargetType="{x:Type Label}">
                             <Setter Property="Foreground" Value="{StaticResource Brush.Theme.Primary}"></Setter>
                         </Style>
                     </Label.Style>
                 </Label>
-                <TextBox Margin="10" Grid.Row="1" Text="{Binding Parameter.Description}" FontStyle="Italic" IsReadOnly="False"></TextBox>
+                <TextBox Margin="10,-14,10,10" Text="{Binding Parameter.Description}" FontStyle="Italic" IsReadOnly="False" Grid.RowSpan="2"/>
             </Grid>
         </Grid>
         <Grid Grid.Row="3">

@@ -31,7 +31,13 @@
                   Margin="10">
             <ListBox ItemContainerStyle="{StaticResource ParameterTemplateDisplayOnly}"
                      ItemsSource="{Binding AvailableTemplates}"
-                     x:Name="ListBox_AvailableTemplates"></ListBox>
+                     x:Name="ListBox_AvailableTemplates">
+                <ListBox.Style>
+                    <Style TargetType="ListBox">
+                        <Setter Property="Background" Value="LightGray"></Setter>
+                    </Style>
+                </ListBox.Style>
+            </ListBox>
         </GroupBox>
 
         <GroupBox Style="{StaticResource GroupBoxPanel}"
@@ -41,13 +47,20 @@
                   Margin="10">
             <ListBox ItemContainerStyle="{StaticResource ParameterTemplateDisplayOnly}"
                      ItemsSource="{Binding AssignedTemplates}"
-                     x:Name="ListBox_AssignedTemplates"></ListBox>
+                     x:Name="ListBox_AssignedTemplates">
+                <ListBox.Style>
+                    <Style TargetType="ListBox">
+                        <Setter Property="Background" Value="LightGray"></Setter>
+                    </Style>
+                </ListBox.Style>
+            </ListBox>
         </GroupBox>
 
         <Button Grid.Row="0"
                 Grid.Column="1"
                 Command="{Binding AssignTemplateCommand}"
                 CommandParameter="{Binding ElementName=ListBox_AvailableTemplates,Path=SelectedItem}"
+                Style="{StaticResource DefaultButtonStyle}"
                 Content="&gt;"
                 Height="20"
                 Width="60"
@@ -56,6 +69,7 @@
                 Grid.Column="1"
                 Command="{Binding UnassignTemplateCommand}"
                 CommandParameter="{Binding ElementName=ListBox_AssignedTemplates,Path=SelectedItem}"
+                Style="{StaticResource DefaultButtonStyle}"
                 Content="&lt;"
                 Height="20"
                 Width="60"

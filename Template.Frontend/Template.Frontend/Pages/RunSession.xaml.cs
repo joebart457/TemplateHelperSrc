@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mochj.Models.Fn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -47,14 +48,25 @@ namespace Template.Frontend.Pages
         private void Setup()
         {
             SetupParametersEditDataGrid();
+            ScriptingService.AddGlobalFunction("print-to-screen",
+               new NativeFunction()
+               .Action((Args args) =>
+               {
+                   //TextBox_OutputDirectory.Text = args.Get<string>(0);
+                   return Mochj.Builders.QualifiedObjectBuilder.BuildEmptyValue();
+               })
+               .RegisterParameter<string>("source")
+               .ReturnsEmpty()
+               .Build());
         }
         private void SetupParametersEditDataGrid()
         {
 
             // Add Delete Button 
             var deleteButtonTemplate = new FrameworkElementFactory(typeof(Button));
-            deleteButtonTemplate.SetValue(Button.ContentProperty, "Delete");
-
+            deleteButtonTemplate.SetValue(Button.ContentProperty, "-");
+            deleteButtonTemplate.SetValue(Button.BackgroundProperty, new SolidColorBrush(Colors.Red));
+            deleteButtonTemplate.SetValue(Button.ForegroundProperty, new SolidColorBrush(Colors.White));
             deleteButtonTemplate.SetBinding(ComboBox.IsEnabledProperty, new Binding("Enable"));
 
             deleteButtonTemplate.AddHandler(
@@ -70,6 +82,7 @@ namespace Template.Frontend.Pages
                 {
                     Header = "",
                     CellTemplate = new DataTemplate() { VisualTree = deleteButtonTemplate },
+                    Width = 10
                 }
             );
 
@@ -89,7 +102,6 @@ namespace Template.Frontend.Pages
             _parametersItemSource =  _project == null ?
                 new List<FilledParameterListItem>()
                 : _parameterRepository.GetAllParametersForProject(_project.Id).Select(x => x.ToListItem()).ToList();
-;
             DataGrid_FilledParametersEdit.ItemsSource = _parametersItemSource;
 
         }
@@ -144,49 +156,59 @@ namespace Template.Frontend.Pages
         {
             if (_project != null)
             {
-                Button_RunSession.IsEnabled = false;
-                List<SymbolMacro> macros = DataGrid_FilledParametersEdit.ItemsSource.Cast<FilledParameterListItem>().Select(x => x.ToSymbolMacro()).ToList();
-                //Tasks.TemplateCreationTask task = new Tasks.TemplateCreationTask(
-                //    _project.InputDirectory,
-                //    TextBox_OutputDirectory.Text,
-                //    _project.SandboxDirectory,
-                //    CheckBox_RunForSandbox.IsChecked.GetValueOrDefault(),
-                //    CheckBox_AllowOverwrite.IsChecked.GetValueOrDefault(),
-                //    macros
-                //    );
-
-                Tasks.ScaffoldTask task = new Tasks.ScaffoldTask(
-                    _project.Id,
-                    TextBox_OutputDirectory.Text,
-                    CheckBox_RunForSandbox.IsChecked.GetValueOrDefault(),
-                    CheckBox_AllowOverwrite.IsChecked.GetValueOrDefault(),
-                    macros
-                    );
-
-                string err;
-                if (!task.Validate(out err))
+                try
                 {
-                    MessageBox.Show(err, "Error validating task");
-                    return;
+                    Button_RunSession.IsEnabled = false;
+                    List<SymbolMacro> macros = DataGrid_FilledParametersEdit.ItemsSource.Cast<FilledParameterListItem>().Select(x => x.ToSymbolMacro()).ToList();
+                    //Tasks.TemplateCreationTask task = new Tasks.TemplateCreationTask(
+                    //    _project.InputDirectory,
+                    //    TextBox_OutputDirectory.Text,
+                    //    _project.SandboxDirectory,
+                    //    CheckBox_RunForSandbox.IsChecked.GetValueOrDefault(),
+                    //    CheckBox_AllowOverwrite.IsChecked.GetValueOrDefault(),
+                    //    macros
+                    //    );
+
+                    Tasks.ScaffoldTask task = new Tasks.ScaffoldTask(
+                        _project.Id,
+                        TextBox_OutputDirectory.Text,
+                        CheckBox_RunForSandbox.IsChecked.GetValueOrDefault(),
+                        CheckBox_AllowOverwrite.IsChecked.GetValueOrDefault(),
+                        macros
+                        );
+
+                    string err;
+                    if (!task.Validate(out err))
+                    {
+                        MessageBox.Show(err, "Error validating task");
+                        return;
+                    }
+
+                    int total = task.Estimate();
+
+
+                    IProgress<int> taskProgress = new Progress<int>(value =>
+                    {
+                        Label_TaskProgress.Content = $"{value}/{total} files processed";
+                    });
+
+                    await Task.Run(() =>
+                    {
+                        try
+                        {
+                            task.Execute(taskProgress);
+                        }
+                        catch (Exception e)
+                        {
+                            MessageBox.Show(e.Message, "Error running task");
+                        }
+                    });
+                    Button_RunSession.IsEnabled = true;
+                } catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Unkown error running task");
+                    Button_RunSession.IsEnabled = true;
                 }
-
-                int total = task.Estimate();
-
-
-                IProgress<int> taskProgress = new Progress<int>(value => {
-                    Label_TaskProgress.Content = $"{value}/{total} files processed";
-                });
-
-                await Task.Run(() => {
-                    try
-                    {
-                        task.Execute(taskProgress);
-                    } catch(Exception e)
-                    {
-                        MessageBox.Show(e.Message, "Error running task");
-                    }               
-                });
-                Button_RunSession.IsEnabled = true;
             }
         }
 

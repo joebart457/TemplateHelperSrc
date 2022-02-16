@@ -31,9 +31,8 @@ namespace Template.Frontend.Models.ViewModels
             SaveCommand = new RelayCommand(Save);
             ShowMoreActionsCommand = new RelayCommand<Button>(ShowMoreActions);
             OpenEditDialogCommand = new RelayCommand(OpenEditDialog);
-            _moreActionsMenu.Items.Add(new MenuItem { Command = DeleteCommand, Header = "Delete" });
             _moreActionsMenu.Items.Add(new MenuItem { Command = OpenEditDialogCommand, Header = "Edit" });
-
+            _moreActionsMenu.Items.Add(new MenuItem { Command = DeleteCommand, Header = "Delete" });
         }
 
 

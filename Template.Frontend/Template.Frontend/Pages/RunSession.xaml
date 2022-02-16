@@ -63,8 +63,7 @@
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <!--Background="#FF3F3F3F"
-                  BorderBrush="#FF97A0A5" -->
+
                     <Grid Grid.Row="0" Grid.ColumnSpan="4">
                         <Grid.Background>
                             <SolidColorBrush Color="#FF3F3F3F" Opacity="01.0"></SolidColorBrush>
@@ -74,7 +73,6 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition Width="60"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                             <ColumnDefinition Width="60"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
@@ -85,7 +83,8 @@
                                 Background="#FF3F3F3F"
                                 Foreground="White"
                                 BorderBrush="#FF3F3F3F"
-                                Content="+Row" Grid.ColumnSpan="2" Margin="189,0,0,0" Click="Button_AddFilledParameter_Click" />
+                                Content="+Row"
+                                Click="Button_AddFilledParameter_Click" />
                     </Grid>
 
                     <DataGrid x:Name="DataGrid_FilledParametersEdit"
@@ -104,10 +103,15 @@
                         </DataGrid.Background>
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="100" Header="Template" IsReadOnly="True" Binding="{Binding TemplateName}"></DataGridTextColumn>
-                            <DataGridTextColumn Width="300" Header="Description" IsReadOnly="True" Binding="{Binding Description}"></DataGridTextColumn>
-                            <DataGridTextColumn Width="120" Header="Symbol" Binding="{Binding Symbol}"></DataGridTextColumn>
-                            <DataGridTextColumn Width="300" Header=" Symbol Type" IsReadOnly="True" Binding="{Binding Type}"></DataGridTextColumn>
-                            <DataGridTextColumn Width="120" Header="Value" Binding="{Binding Value}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="Auto" Header="Symbol" Binding="{Binding Symbol}">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="{Binding Description}" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Width="Auto" Header=" Symbol Type" IsReadOnly="True" Binding="{Binding Type}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="200" Header="Value" Binding="{Binding Value}"></DataGridTextColumn>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -201,6 +205,7 @@
                             <Label x:Name="Label_TaskProgress" 
                                    Grid.Row="0" 
                                    Grid.Column="1"
+                                   Grid.ColumnSpan="3"
                                    HorizontalAlignment="Left"
                                    HorizontalContentAlignment="Left"
                                    Content="Idle"

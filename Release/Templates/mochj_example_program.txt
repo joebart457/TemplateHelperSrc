@@ -1,0 +1,69 @@
+
+
+
+
+
+// This is a single line comment
+
+(load "Mochj.Debug.dll") // load the compiled library Mochj.Debug.dll
+
+(namespace Program.Test) // Create/Enter the Program.Test namespace
+						 // All functions defined here are defined in the Program.Test namespace
+						 
+
+
+// Definition of function named my-function which returns a number
+
+(defn my-function:number [exampleParam1:string]
+				  [exampleParam2:number]
+				  [exampleParamWithDefault:boolean=false]
+
+		(set value 43) 				// set the identifier "value" equal to 43
+		
+		// if-else control flow is defined as a function named "if" with parameters
+		// condition:boolean
+		// then:fn
+		// else:fn 
+		// If the condition parameter is true, then the function "then" is called, otherwise the function "else" is called
+		
+		(if exampleParamWithDefault
+			(defn do-this:empty (set value 22))
+			(defn else-do-this:empty (set value -1))
+		)
+		(return value) // return whatever the identifier "value" is set to
+
+) // end my-function
+
+
+(entry main) // the entry point for the program when run from the commandline is "main"
+
+(defn main:empty [commandlineParam:string]
+	
+	(set x 0)
+	
+	// while control flow is defined as a function named "while" with parameters
+	// condition:fn
+	// then:fn
+	// Tests the result of the condition function and if it evaluates to a truthy value, calls the "then" function and repeats
+	(while (defn test:boolean (return (not-equal x 7))) 		//  while x does not equal 7
+			(defn do:empty										
+				(println (to-string x))							// cast the value of x to a string and print it
+				(set x (addn x 1))								// set x = x +1
+			)
+	)
+	
+	(addn 1 2)					// Add two numbers
+	(adds "hello " "there")     // Concatenate two strings
+	(less-than a b)      		// test if a < b
+	(less-than-equal a b)      	// test if a <= b
+	(lt a b)      				// test if a < b
+	(lte a b)      				// test if a <= b
+	(greater-than a b)      	// test if a > b
+	(greater-than-equal a b)    // test if a >= b
+	(lt a b)      				// test if a > b
+	(lte a b)      				// test if a >= b
+	(equal true false)          // test if two objects are equal
+	(not-equal true false)      // test if two objects are not equal
+	(not true)          		// invert a boolean value
+
+)

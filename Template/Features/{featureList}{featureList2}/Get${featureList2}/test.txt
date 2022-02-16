@@ -1,3 +1,4 @@
 
 
 %%%(SQL.generate-entity "C:\\Users\\joeba\\Desktop\\test.txt")
+%%% (print-to-screen "Hello World")
