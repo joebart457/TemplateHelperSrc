@@ -102,7 +102,7 @@
                             <SolidColorBrush Color="White" Opacity="0.3"></SolidColorBrush>
                         </DataGrid.Background>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Width="100" Header="Template" IsReadOnly="True" Binding="{Binding TemplateName}"></DataGridTextColumn>
+                            <DataGridTextColumn Width="Auto" Header="Template" IsReadOnly="True" Binding="{Binding TemplateName}"></DataGridTextColumn>
                             <DataGridTextColumn Width="Auto" Header="Symbol" Binding="{Binding Symbol}">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
@@ -158,20 +158,21 @@
 
                         <TextBox x:Name="TextBox_OutputDirectory" 
                                  Grid.Row="1"
+                                 Grid.ColumnSpan="2"
                                  HorizontalAlignment="Left" 
                                  Margin="10,0,0,0"
                                  Text="" 
                                  TextWrapping="Wrap"
                                  VerticalAlignment="Center" 
-                                 Width="240"
+                                 Width="194"
                                  Tag="Output Directory"
-                                 Style="{DynamicResource TextboxInlineSingleBorder}"/>
+                                 Style="{DynamicResource TextBoxSingleBorderWithLabel}"/>
                         <Button x:Name="Button_BrowseOutputDirectory"
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     Width="60"
                                     Height="20"
-                                    Margin="10,10,0,0"
+                                    Margin="72,23,0,22"
                                     HorizontalAlignment="Left"
                                     Style="{StaticResource DefaultButtonStyle}"
                                     Content="Browse" Click="Button_BrowseOutputDirectory_Click" ></Button>

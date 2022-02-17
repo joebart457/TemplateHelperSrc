@@ -275,15 +275,16 @@ namespace Template.Frontend.Tasks
                         foreach (string value in macro.Value.Split(','))
                         {
                             var listItemMacro = new SymbolMacro { Symbol = $"${macro.Symbol}", Value = value, Type = ParameterTypeEnum.Text };
-                            _currentListItemSymbols.Add(listItemMacro);
+                            //_currentListItemSymbols.Add(listItemMacro);
                             var newEntry = entry.Copy();
-                            entry.ListItemMacros.AddRange(_currentListItemSymbols);
+                            //entry.ListItemMacros.AddRange(_currentListItemSymbols);
+                            newEntry.ListItemMacros.Add(listItemMacro); //+
                             newEntry.Replace(macro.Symbol, value);
                             newEntry.ReplaceInChildren(listItemMacro.Symbol, listItemMacro.Value);
                             newEntry.ReplaceInChildren(macro.Symbol, value);
 
                             resolvedEntries.AddRange(Resolve(newEntry, macros.Where(x => x != macro).ToList()));
-                            _currentListItemSymbols.Remove(listItemMacro);
+                           // _currentListItemSymbols.Remove(listItemMacro);
                         }
                         continue;
                     }
